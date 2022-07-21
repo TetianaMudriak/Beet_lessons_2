@@ -38,9 +38,9 @@ class TVController:
         self.current = lst_channel
         print(lst_channel)
 
-    def turn_channel(self, N):
-        self.N = N
-        turned_channel = self.CHANNELS[N - 1]
+    def turn_channel(self, indx):
+        self.indx = indx
+        turned_channel = self.CHANNELS[indx - 1]
         self.current = turned_channel
         print(turned_channel)
 
@@ -71,6 +71,31 @@ class TVController:
             print('Yes')
         else:
             print('No')
+
+
+class Student:
+    def __init__(self, name, age, academic_year, field_of_study):
+        self.name = name
+        self.age = age
+        self.academic_year = academic_year
+        self.field_of_study = field_of_study
+
+    def check_experience(self):
+        if self.academic_year == 1:
+            print('Hey, you\'re a freshman. Gotta learn a lot!')
+        elif self.academic_year in range(2, 5):
+            print(f'Hey, you\'re on {self.academic_year} year! '
+                  f'You already know something!')
+        elif self.academic_year in range(5, 7):
+            print('Hey, you\'re graduating soon! Good luck!')
+        else:
+            print('Hmmm... Seems like you enter wrong number!')
+
+
+class Scholar(Student):
+    def __init__(self, name, age, academic_year, field_of_study, scholarship):
+        super().__init__(name, age, academic_year, field_of_study)
+        self.scholarship = scholarship
 
 
 def main():
@@ -108,6 +133,12 @@ def main():
     controller.is_exist('BB')
     controller.is_exist(4)
     controller.is_exist(3)
+
+    # Additional task
+    student1 = Scholar("Ivi", 21, 4, "Economics", True)
+    student2 = Scholar("Evi", 22, 5, "IT", True)
+    student1.check_experience()
+    student2.check_experience()
 
 
 if __name__ == '__main__':
