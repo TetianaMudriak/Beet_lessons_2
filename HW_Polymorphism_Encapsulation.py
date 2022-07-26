@@ -68,8 +68,6 @@ class Library:
         self.books.append(book)
         if book.author not in self.authors:
             self.authors.append(book.author)
-        # print(self.books)
-        # print(self.authors)
 
     def group_by_author(self, author_name):
         for author in self.authors:
@@ -160,15 +158,15 @@ def main():
     lib1.new_book(book2)
     book3 = Book("The Da Vinci Code", 2003, author1)
     lib1.new_book(book3)
-    print(f"Number of books: {Book.num_books}")
     lib1.group_by_author("Den Brown")
     book4 = Book("The Da Vinci  extended", 2003, author1)
     lib1.new_book(book4)
     lib1.group_by_year(2003)
+    print(f"Number of books: {Book.num_books}")
 
     # Task 3
-    x = Fraction(1, 6)
-    y = Fraction(2, 6)
+    x = Fraction(1, 2)
+    y = Fraction(1, 4)
     print(x + y)
     # print(x - y)
     # print(x * y)
