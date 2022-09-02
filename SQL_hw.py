@@ -108,7 +108,7 @@ for item in select_query(connection, employee_manager):
 
 employee_salary_difference = """
 SELECT jobs.job_title, 
-employees.first_name || employees.last_name AS 'Full name',
+employees.first_name || ' ' || employees.last_name AS 'Full name',
 jobs.max_salary - employees.salary AS 'Salary difference'
 FROM employees
 JOIN jobs using (job_id)
@@ -134,7 +134,7 @@ for item in select_query(connection, employee_avg_salary):
 # and salary of those employees who work in any department located in London
 
 employee_salary_london = """
-SELECT employees.first_name || employees.last_name AS 'Full name',
+SELECT employees.first_name || ' ' || employees.last_name AS 'Full name',
 employees.salary, locations.city
 FROM employees
 JOIN departments using (department_id)
